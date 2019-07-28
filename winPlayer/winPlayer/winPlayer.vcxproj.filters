@@ -21,6 +21,12 @@
     <ClInclude Include="IlluminationTest.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="InstancingTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -33,6 +39,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="IllumationTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="InstancingTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBase.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

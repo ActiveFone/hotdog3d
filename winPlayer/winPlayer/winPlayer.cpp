@@ -8,11 +8,14 @@
 #include <iostream>
 
 #include "IlluminationTest.h"
-// settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+#include "InstancingTest.h"
 
-IlluminationTest testInstance(SCR_WIDTH, SCR_HEIGHT);
+// settings
+const unsigned int SCR_WIDTH = 1280;
+const unsigned int SCR_HEIGHT = 720;
+
+//IlluminationTest testHandler(SCR_WIDTH, SCR_HEIGHT);
+InstancingTest testHandler(SCR_WIDTH, SCR_HEIGHT);
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -28,7 +31,7 @@ int main()
 		return -1;
 	
 	// show test
-	testInstance.showTest(window);
+	testHandler.showTest(window);
 
 	// glfw: terminate, clearing all previously allocated GLFW resources.
 	// ------------------------------------------------------------------
@@ -98,12 +101,12 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 // -------------------------------------------------------
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
-	testInstance.mouse_callback(window, xpos, ypos);
+	testHandler.mouse_callback(window, xpos, ypos);
 }
 
 // glfw: whenever the mouse scroll wheel scrolls, this callback is called
 // ----------------------------------------------------------------------
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
-	testInstance.scroll_callback(window, xoffset, yoffset);
+	testHandler.scroll_callback(window, xoffset, yoffset);
 }
