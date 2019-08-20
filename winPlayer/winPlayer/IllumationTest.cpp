@@ -153,7 +153,7 @@ void IlluminationTest::showTest(GLFWwindow *window)
 
 	// load textures (we now use a utility function to keep the code more organized)
 	// -----------------------------------------------------------------------------
-	unsigned int diffuseMap = loadTexture();
+	unsigned int diffuseMap = loadTexture("res/img/container2.png");
 
 	// shader configuration
 	// --------------------

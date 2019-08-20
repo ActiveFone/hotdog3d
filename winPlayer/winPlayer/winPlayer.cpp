@@ -1,21 +1,17 @@
-﻿//#include <glad/glad.h>
-//#include <GLFW/glfw3.h>
-//
-//#include <glm/glm.hpp>
-//#include <glm/gtc/matrix_transform.hpp>
-//#include <glm/gtc/type_ptr.hpp>
-#pragma once
+﻿#pragma once
 #include <iostream>
 
 #include "IlluminationTest.h"
 #include "InstancingTest.h"
+#include "FrameBufferTest.h"
 
 // settings
 const unsigned int SCR_WIDTH = 1280;
 const unsigned int SCR_HEIGHT = 720;
 
 //IlluminationTest testHandler(SCR_WIDTH, SCR_HEIGHT);
-InstancingTest testHandler(SCR_WIDTH, SCR_HEIGHT);
+//InstancingTest testHandler(SCR_WIDTH, SCR_HEIGHT);
+FrameBufferTest testHandler(SCR_WIDTH, SCR_HEIGHT);
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);

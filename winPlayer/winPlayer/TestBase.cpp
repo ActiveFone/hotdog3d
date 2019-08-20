@@ -8,7 +8,18 @@ TestBase::TestBase()
 
 TestBase::TestBase(const unsigned int width, const unsigned int height)
 {
+	nWidth = width;
+	nHeight = height;
 
+	// camera
+	camera = Camera(glm::vec3(0.0f, 0.0f, 3.0f));
+	lastX = nWidth / 2.0f;
+	lastY = nHeight / 2.0f;
+	firstMouse = true;
+
+	// timing
+	deltaTime = 0.0f;
+	lastFrame = 0.0f;
 }
 
 TestBase::~TestBase()
@@ -19,31 +30,55 @@ TestBase::~TestBase()
 // ---------------------------------------------------------------------------------------------------------
 void TestBase::processInput(GLFWwindow *window)
 {
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, true);
 
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		camera.ProcessKeyboard(FORWARD, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		camera.ProcessKeyboard(BACKWARD, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		camera.ProcessKeyboard(LEFT, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		camera.ProcessKeyboard(RIGHT, deltaTime);
 }
 
 // glfw: whenever the mouse moves, this callback is called
 // -------------------------------------------------------
 void TestBase::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
+	if (firstMouse)
+	{
+		lastX = xpos;
+		lastY = ypos;
+		firstMouse = false;
+	}
 
+	float xoffset = xpos - lastX;
+	float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
+
+	lastX = xpos;
+	lastY = ypos;
+
+	camera.ProcessMouseMovement(xoffset, yoffset);
 }
 
 // glfw: whenever the mouse scroll wheel scrolls, this callback is called
 // ----------------------------------------------------------------------
 void TestBase::scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
+	camera.ProcessMouseScroll(yoffset);
 }
 
 // utility function for loading a 2D texture from file
 // ---------------------------------------------------
-unsigned int TestBase::loadTexture()
+unsigned int TestBase::loadTexture(const char* path)
 {
 	unsigned int textureID;
 	glGenTextures(1, &textureID);
 
 	int width, height, nrComponents;
-	const char* path = "res/img/container2.png";
+	//const char* path = "res/img/container2.png";
 	unsigned char *data = stbi_load(path, &width, &height, &nrComponents, 0);
 	if (data)
 	{

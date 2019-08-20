@@ -22,16 +22,23 @@ public:
 	void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 	void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 	void processInput(GLFWwindow *window);
-	unsigned int loadTexture();
+	unsigned int loadTexture(const char* path);
 
 	void showTest(GLFWwindow *window);
 
 	unsigned int nWidth;
 	unsigned int nHeight;
+	// timing
+	float deltaTime;
+	float lastFrame;
 
 	GLFWwindow* mWindow;
+	Camera camera;
 
 private:
+	float lastX;
+	float lastY;
+	bool firstMouse;
 
 	bool init();
 };
