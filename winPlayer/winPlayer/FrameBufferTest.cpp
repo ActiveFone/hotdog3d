@@ -235,6 +235,6 @@ void FrameBufferTest::drawScreenBuffer(Shader screenShader)
 	glDisable(GL_DEPTH_TEST);
 	glBindTexture(GL_TEXTURE_2D, texColorBuffer);
 	
-	//glEnable(GL_CULL_FACE);
-	glDrawArrays(GL_LINES, 0, 6);
+	glEnable(GL_CULL_FACE);
+	glDrawArrays(GL_LINE, 0, 6);
 }
