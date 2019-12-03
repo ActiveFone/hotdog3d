@@ -1,4 +1,5 @@
 #include "IlluminationTest.h"
+using namespace std;
 
 IlluminationTest::IlluminationTest(const unsigned int width, const unsigned int height)
 {
