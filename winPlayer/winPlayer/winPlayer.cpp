@@ -12,10 +12,10 @@ const unsigned int SCR_WIDTH = 1280;
 const unsigned int SCR_HEIGHT = 720;
 
 //IlluminationTest testHandler(SCR_WIDTH, SCR_HEIGHT);
-//InstancingTest testHandler(SCR_WIDTH, SCR_HEIGHT);
+InstancingTest testHandler(SCR_WIDTH, SCR_HEIGHT);
 //FrameBufferTest testHandler(SCR_WIDTH, SCR_HEIGHT);
 //ModelLoadTest testHandler(SCR_WIDTH, SCR_HEIGHT);
-GeometryTest testHandler(SCR_WIDTH, SCR_HEIGHT);
+//GeometryTest testHandler(SCR_WIDTH, SCR_HEIGHT);
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);

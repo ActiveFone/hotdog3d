@@ -11,6 +11,7 @@ public:
 	~InstancingTest() {};
 
 	void showTest(GLFWwindow *window);
+	void showRockTest(GLFWwindow *window);
 private:
 
 };
